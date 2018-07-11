@@ -6,14 +6,11 @@ Created on Thu Jun 28 18:16:24 2018
 """
 
 def sort_array(x):   
-    for j in range(0,len(x)):
-        a = x[j]
-        for i in range(j,len(x)):
-            if x[i] <= a:
-                a = x[i]
-                indi = i
-        temp = x[indi]     
-        x[indi] = x[j]
-        x[j] = temp
+    for j in range(len(x)):
+        min_idx = j
+        for i in range(j+1,len(x)):
+            if x[i] <= x[j]:
+                min_idx = i
+            x[j], x[min_idx] = x[min_idx], x[j]
     return(x)  
-print(sort_array([1,7,1,2,2,5,-1]))
+print(sort_array([1,2,1,2,7,5,11]))
