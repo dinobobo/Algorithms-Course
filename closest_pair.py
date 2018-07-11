@@ -57,26 +57,27 @@ def closestpair(a):
                     d = distance(a[i] , a[j])
                     pair = [a[i],a[j]]
         return (pair,delta)
-    sorted_x = merge_sort_pairs(a.copy())
-    sorted_y = merge_sort_pairs(a.copy(),1)
-    Lx = sorted_x.copy()[0:int(len(a)/2)]
-    Rx = sorted_x.copy()[int(len(a)/2):len(a)]
-    Lx_pair = closestpair(Lx.copy())
-    Rx_pair = closestpair(Rx.copy())
-    delta, x_bar = min(Lx_pair[1], Rx_pair[1]), sorted_x[int(len(a)/2)][0]
-    if Lx_pair[1] < Rx_pair[1]:
-        pair = Lx_pair[0]
     else:
-        pair = Rx_pair[0]
-    sy = []
-    for i in range(len(sorted_y)):
-        if x_bar - delta <= sorted_y[i,0] <= x_bar + delta:
-            sy.append(sorted_y[i])
-    for j in range(len(sy) - 1):
-        for k in range(j + 1, min(j+7, len(sy))):
-            if delta <= distance(sy[j],sy[k]):
-                delta = distance(sy[j],sy[k])
-                pair = [sy[j],sy[k]]
-    return (pair,delta)
+        sorted_x = merge_sort_pairs(a.copy())
+        sorted_y = merge_sort_pairs(a.copy(),1)
+        Lx = sorted_x.copy()[0:int(len(a)/2)]
+        Rx = sorted_x.copy()[int(len(a)/2):len(a)]
+        Lx_pair = closestpair(Lx.copy())
+        Rx_pair = closestpair(Rx.copy())
+        delta, x_bar = min(Lx_pair[1], Rx_pair[1]), sorted_x[int(len(a)/2)][0]
+        if Lx_pair[1] < Rx_pair[1]:
+            pair = Lx_pair[0]
+        else:
+            pair = Rx_pair[0]
+        sy = []
+        for i in range(len(sorted_y)):
+            if x_bar - delta <= sorted_y[i,0] <= x_bar + delta:
+                sy.append(sorted_y[i])
+        for j in range(len(sy) - 1):
+            for k in range(j + 1, min(j+7, len(sy))):
+                if delta <= distance(sy[j],sy[k]):
+                    delta = distance(sy[j],sy[k])
+                    pair = [sy[j],sy[k]]
+        return (pair,delta)
     
 print(closestpair(np.array([[11,3],[2,14],[5,5],[300,1],[3,14],[11,3]])))
