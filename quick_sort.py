@@ -6,7 +6,7 @@ Created on Sat Jul 14 08:10:27 2018
 """
 import random
 def quick_sort(P,l,r):
-    if r-l+1 < 4:
+    if r-l+1 < 2:
         return(sorted(P[l:r+1]))
     else:
         pivot = random.randint(l,r)
@@ -23,6 +23,6 @@ def quick_sort(P,l,r):
         P[l:i] = quick_sort(P,l,i-1)
         P[i+1:r+1] = quick_sort(P,i+1,r) 
         return(P[l:r+1]) 
-P = random.sample(range(100),50)
+P = random.sample(range(10),5)
 print(P)
 print(quick_sort(P,0,len(P)-1))
