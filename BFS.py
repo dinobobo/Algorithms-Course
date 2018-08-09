@@ -12,12 +12,12 @@ def BFS(G, s):
     q = deque([s])
     while len(q) != 0:
         v = q.popleft()
-        for j in G[v]:
-            if G[j][-1] == 'False':
-                G[j][-1] = 'True'
-                q.append(j)
+        for j in G[v][:-1]:
+            if G[str(j)][-1] == 'False':
+                G[str(j)][-1] = 'True'
+                q.append(str(j))
             
             
     
 graph = {'1':[2,3],'2':[1,4],'3':[1,4,6],'4':[2,3,5,6],'5':[4,6],'6':[3,4,5]}
-    
+BFS(graph, '1')    
