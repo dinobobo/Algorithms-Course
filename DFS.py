@@ -9,20 +9,16 @@ def DFS(G,s):
     for i in G.keys():
         G[i].append('False')
     st = [s]
-    explored = []
     while len(st) > 0:
-        G[st(-1)][-1] == 'True'
         advance = 'False'
-        for j in G[st(-1)[:-1]]:
-            if G[str(j)][-1] == 'False'
-                explored.append(st.pop())
+        G[st[-1]][-1] = 'True'
+        for j in G[st[-1]][:-1]:
+            if G[str(j)][-1] == 'False':
                 st.append(str(j))
                 advance = 'True'
                 break
-        if advance = 'False':
-            st.pop()
-            if len(explored) > 0 :
-                st.append(explored.pop())
+        if advance == 'False':    
+            st.pop()    
                 
             
             
