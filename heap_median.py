@@ -4,11 +4,12 @@ class maxint:
         self.val = val
     def __lt__(self, other):
         return self.val > other.val
-    
+'''    
 with open('median.txt') as f:
     content = f.readlines()
     data = [int(x.split()[0]) for x in content]
-    
+'''
+data = [1,2,3,4,5]    
     
 l_heap = [maxint(min(data[0],data[1]))]
 h_heap = [max(data[0],data[1])]
